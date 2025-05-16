@@ -1,36 +1,17 @@
-// const express = require('express');
-
-// const app = express();
-
-// app.get('/',(req, res) => {
-//     res.sendStatus('Olá, Mundo');
-// });
-
 import express from 'express';
 
 const app = express();
 const PORT = 3000;
 
-// Rota principal
-app.get('/', (req, res) => {
-  res.send('Bem-vindo ao React App!');
-});
+app.get('/produtos', (req, res) => {
+  const produtos = [
+    { id: 1, nome: 'Notebook', preco: 3500, categoria: 'Eletrônicos' },
+    { id: 2, nome: 'Smartphone', preco: 2500, categoria: 'Eletrônicos' },
+    { id: 3, nome: 'Cadeira Gamer', preco: 900, categoria: 'Móveis' },
+    { id: 4, nome: 'Fone de Ouvido', preco: 300, categoria: 'Acessórios' },
+  ];
 
-// Rota para cada seção
-app.get('/home', (req, res) => {
-  res.send('Página Home');
-});
-
-app.get('/about', (req, res) => {
-  res.send('Página About');
-});
-
-app.get('/features', (req, res) => {
-  res.send('Página Features');
-});
-
-app.get('/contact', (req, res) => {
-  res.send('Página Contact');
+  res.json(produtos);
 });
 
 app.listen(PORT, () => {
